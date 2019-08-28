@@ -14,13 +14,25 @@
 #define NUM_OF_SAMPLES_PER_TEST ((word_t)(1 << 24))
 #define PRINT_EVERY_N_WORDS (1000000)
 
+#define NUM_BITS_IN_CHAR 8
+
+uint8_t get_random_char()
+{
+  return rand() % (1 << NUM_BITS_IN_CHAR);
+}
+
 // TODO: This should be a truly random word, from a deterministic RNG with a
 // random seed, because the Lemire RNG calls this.
 // I wanted to find an AES-CTR implementation or similar,
 // But I don't know where to find one with an Apache license.
 word_t get_random_word(__attribute__((unused)) void *dummy)
 {
-  return (word_t)(((double)rand()) / RAND_MAX * WORD_MAX_VALUE);
+  word_t res = 0;
+  for (int i = 0; i < (WORD_SIZE_BITS / NUM_BITS_IN_CHAR); i++) {
+    res <<= NUM_BITS_IN_CHAR;
+    res += get_random_char();
+  }
+  return res;
 }
 
 void test_num_samples_below_cutoff(word_t random_upper_bound,
