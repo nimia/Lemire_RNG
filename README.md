@@ -53,4 +53,4 @@ However, since these tools do not report problems, this gives some shred of hope
   This is an intentional choice to allow reproduceable tests, by printing the seed at the start of each run; making the tests non-reproduceable would make it unclear how to debug a broken test.
   The sensible solution would be to instead use a strong deterministic RNG that can be initialized from a random seed, perhaps a stream cipher.
   However, I couldn't quickly locate an implementation of the above which is licensed under Apache 2, and decided to leave this as-is.
-* Benchmark this implementation (with asserts removed) vs. [the original 14-line implementation](https://lemire.me/blog/2019/06/06/nearly-divisionless-random-integer-generation-on-various-systems/).
+* Benchmark this implementation (with asserts disabled) vs. [the original 14-line implementation](https://lemire.me/blog/2019/06/06/nearly-divisionless-random-integer-generation-on-various-systems/).
