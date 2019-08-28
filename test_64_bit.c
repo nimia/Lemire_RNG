@@ -102,6 +102,7 @@ int main(int argc, char *argv[])
       "It does so twice, once with WORD_MAX_VALUE (%lu) as the random upper "
       "bound, and once with a randomly-selected upper bound.\n",
       NUM_OF_SAMPLES_PER_TEST, WORD_MAX_VALUE);
+  printf("FYI, your random seed for today is %lu.\n", random_seed);
 
   test_num_samples_below_cutoff(WORD_MAX_VALUE, get_random_word(NULL),
                                 random_seed);
