@@ -28,7 +28,7 @@ Specifically, running `make test` will:
   2.1. For each of those 2 upper bounds, iterate over all 2^32 possible inputs to the RNG, verify the output is uniform.
 
 * We note that the two above tests seem quite meaningful.
-    For example, changing the `<=` comparison operator in line 42 of Lemire_RNG.inl to `<` will bias the RNG
+    For example, changing the `<=` comparison operator in [line 42 of Lemire_RNG.inl](https://github.com/nimia/Lemire_RNG/blob/master/Lemire_RNG.inl#L42) to `<` will bias the RNG
     in a very subtle way.
     The above tests actually catch this.
 
